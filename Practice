@@ -1,28 +1,38 @@
 
  {9} Perform various Git operations on local and remote repositories.
                                        
-            git init           --- Initialize a new local repository
-						git status         --- Show current status of files (modified, staged, etc.)
-						git add .          --- Add all changes to staging area
-						git add <file>     --- Add specific file to staging area
-						git commit -m "msg" --- Save changes to local repository with a message
-						git log            --- Show commit history
-						git branch         --- List all branches
-						git branch <name>  --- Create a new branch
-						git checkout <name> --- Switch to another branch
-						git checkout -b <name> --- Create and switch to a new branch
-						git merge <branch> --- Merge specified branch into current branch
-						git branch -d <name> --- Delete a branch
-						git remote add origin <url> --- Connect local repo to remote (GitHub)
-						git remote -v      --- View connected remote repositories
-						git push -u origin main --- Push commits to remote main branch
-						git push           --- Push latest commits to remote repo
-						git pull           --- Fetch and merge latest changes from remote
-						git clone <url>    --- Copy (clone) a remote repository to local system
-						git diff           --- Show differences between commits or files
-						git rm <file>      --- Remove a file from the repository
-						git restore <file> --- Undo unstaged changes in a file
-						git fetch          --- Download latest commits from remote (no merge)
-						git reset --hard   --- Reset local repo to last commit (discard changes)
-						git config --global user.name "Your Name" --- Set global username
-						git config --global user.email "youremail@example.com" --- Set global email
+            git config --global user.name "Musab Shaikh"
+git config --global user.email "musabshaikh@example.com"
+mkdir GitPractical
+cd GitPractical
+git init
+echo "This is file1" > file1.txt
+echo "This is file2" > file2.txt
+git status
+git add file1.txt
+git add .
+git commit -m "Add initial files file1.txt and file2.txt"
+git log
+git branch                   # List branches
+git branch feature1           # Create branch 'feature1'
+git checkout feature1         # Switch to 'feature1'
+echo "Feature work" > feature.txt
+git add feature.txt
+git commit -m "Add feature.txt in feature1 branch"
+git checkout main             # Switch back to main
+git merge feature1            # Merge feature1 into main
+git branch -d feature1        # Delete 'feature1'
+git remote add origin https://github.com/username/GitPractical.git
+git remote -v
+git push -u origin main  # Push local commits to remote main
+git pull                 # Fetch and merge latest changes
+cd ..
+git clone https://github.com/username/GitPractical.git
+cd GitPractical
+echo "Change in file1" >> file1.txt
+git diff                     # Shows changes in file1.txt
+git restore file1.txt         # Undo changes in file1.txt
+git rm file2.txt              # Remove file2.txt from repo
+git commit -m "Remove file2.txt"
+git fetch                     # Fetch latest commits from remote
+git reset --hard              # Reset local repo to last commit
