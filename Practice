@@ -1,4 +1,63 @@
 
+ {8}  Build pipeline project in Jenkins.
+                           
+⚙️ 1: Install the Pipeline Plugin
+Go to Manage Jenkins → Plugins → Available Plugins
+Search for “Pipeline”
+Select it → click Install without restart
+Restart Jenkins if required
+
+🧩 2: Create a New Pipeline Project
+From Jenkins Dashboard → click “New Item”
+Enter a name (e.g., MyPipeline)
+Select “Pipeline” → click OK
+
+🧱 3: Configure the Pipeline
+Scroll down to the Pipeline section
+You have two options:
+Option 1: Pipeline Script (direct input)
+Choose “Pipeline script”
+Add sample script:
+
+pipeline {
+    agent any
+    stages {
+        stage('Build') {
+            steps {
+                echo 'Building the project...'
+                sh 'mvn clean install'
+            }
+        }
+        stage('Test') {
+            steps {
+                echo 'Running tests...'
+                sh 'mvn test'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying application...'
+            }
+        }
+    }
+}
+
+
+Option 2: Pipeline Script from SCM (GitHub, etc.)
+Choose “Pipeline script from SCM”
+Select Git and enter your repo URL
+Set Script Path to your Jenkinsfile
+
+⚡4: Save and Build
+Click Save
+Click Build Now 
+Check build stages in the Stage View (it shows each stage visually)
+
+✅ 5: Verify
+If each stage (Build, Test, Deploy) turns green, pipeline is successful 🎉
+You can click each stage to view detailed logs
+
+
  {9} Perform various Git operations on local and remote repositories.
                                        
             git config --global user.name "Musab Shaikh"
