@@ -1,0 +1,28 @@
+
+ {9} Perform various Git operations on local and remote repositories.
+                                       
+            git init           --- Initialize a new local repository
+						git status         --- Show current status of files (modified, staged, etc.)
+						git add .          --- Add all changes to staging area
+						git add <file>     --- Add specific file to staging area
+						git commit -m "msg" --- Save changes to local repository with a message
+						git log            --- Show commit history
+						git branch         --- List all branches
+						git branch <name>  --- Create a new branch
+						git checkout <name> --- Switch to another branch
+						git checkout -b <name> --- Create and switch to a new branch
+						git merge <branch> --- Merge specified branch into current branch
+						git branch -d <name> --- Delete a branch
+						git remote add origin <url> --- Connect local repo to remote (GitHub)
+						git remote -v      --- View connected remote repositories
+						git push -u origin main --- Push commits to remote main branch
+						git push           --- Push latest commits to remote repo
+						git pull           --- Fetch and merge latest changes from remote
+						git clone <url>    --- Copy (clone) a remote repository to local system
+						git diff           --- Show differences between commits or files
+						git rm <file>      --- Remove a file from the repository
+						git restore <file> --- Undo unstaged changes in a file
+						git fetch          --- Download latest commits from remote (no merge)
+						git reset --hard   --- Reset local repo to last commit (discard changes)
+						git config --global user.name "Your Name" --- Set global username
+						git config --global user.email "youremail@example.com" --- Set global email
