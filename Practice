@@ -1,5 +1,100 @@
 
- {8}  Build pipeline project in Jenkins.
+5
+Log in to Jenkins
+
+Browser → http://<JENKINS_SERVER_IP>:8080/
+
+Enter admin credentials.
+
+Open Manage Nodes
+
+Dashboard → Manage Jenkins → Manage Nodes and Clouds
+
+Click New Node (left sidebar).
+
+Configure new node
+
+Enter Node Name (e.g., slave-1)
+
+Select Permanent Agent → Click OK
+
+Fill in node details
+
+Field	Example/Description
+Remote root directory	C:\jenkins_slave (folder on slave machine)
+Labels	windows (used for assigning projects)
+Launch method	Launch agent via Java Web Start or WebSocket
+Host	IP of slave machine (if TCP agent is used)
+Credentials	Add if slave requires login
+
+Save configuration
+
+Click Save
+
+Launch the agent on the slave machine
+
+Copy the command Jenkins provides (with agent.jar & secret)
+
+Example (Windows):
+
+
+
+6
+Log in to Jenkins
+
+Open browser → http://<JENKINS_SERVER_IP>:8080/
+
+Enter credentials.
+
+Verify slave node
+
+Dashboard → Manage Jenkins → Manage Nodes and Clouds
+
+Check slave (e.g., slave-1) is online.
+
+Note its Label (e.g., slave-1 or windows).
+
+Create new project
+
+Dashboard → New Item
+
+Enter project name (e.g., SlaveProject)
+
+Select Freestyle project → Click OK.
+
+Assign project to slave node
+
+Project → Configure
+
+Scroll to Restrict where this project can be run → check the box
+
+Enter slave Label Expression (e.g., slave-1)
+
+Click Save
+
+Add build step
+
+Project configuration → Build → Add build step
+
+Select Execute Windows batch command (Windows) or Execute shell (Linux)
+
+Example command:
+
+Windows: echo Build running on slave node
+
+Linux: echo "Build running on slave node"
+
+Click Save
+
+Build the project
+
+Project page → Build Now
+
+Check Build History → Click build → Console Output
+
+Expected output:
+
+{8}  Build pipeline project in Jenkins.
                            
 ⚙️ 1: Install the Pipeline Plugin
 Go to Manage Jenkins → Plugins → Available Plugins
