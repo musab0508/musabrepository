@@ -58,6 +58,36 @@ exit
 # Step 6: List containers
 docker ps -a
 
+11
+# Clone repository from GitHub
+git clone https://github.com/username/my-repository.git
+cd my-repository
+
+# Check current branch (optional, but useful)
+git branch
+
+# Pull latest changes from remote
+git pull
+# Alternative if branch has no upstream set:
+# git branch --set-upstream-to=origin/main main
+# git pull
+
+# Make changes to files
+echo "This is a new line" >> file1.txt
+
+# Stage changes
+git add file1.txt          # Option 1: add a specific file
+git add .                  # Option 2: add all changes
+
+# Commit changes
+git commit -m "Add new line to file1.txt"
+
+# Push changes to GitHub
+git push                   # Option 1: push normally
+git push -u origin main    # Option 2: first push with upstream set
+
+
+
 12
 # Step 1: Pull an image (example: Ubuntu, Alpine)
 docker pull ubuntu
@@ -87,6 +117,51 @@ exit
 
 # Step 3: Back on host, list containers
 docker ps -a
+
+14 
+git config --global user.name "Musab Shaikh"
+git config --global user.email "musabshaikh@example.com"
+mkdir GitBasic
+cd GitBasic
+git init
+git status
+echo "Hello Git" > file1.txt
+git add file1.txt      # Stage a single file
+git add .              # Stage all files (alternative)
+git commit -m "Add file1.txt"
+git log
+git branch                  # List branches
+git branch feature1          # Create a branch
+git checkout feature1        # Switch to branch
+git checkout -b feature2     # Create and switch to new branch
+git merge feature1           # Merge branch into current
+git branch -d feature1       # Delete branch
+git restore file1.txt        # Undo unstaged changes
+git reset --hard             # Reset repository to last commit (discard all changes)
+git rm file1.txt             # Remove file from repo
+git remote add origin <url>  # Connect local repo to GitHub
+git remote -v                # View connected remotes
+git push -u origin main      # Push commits first time
+git push                     # Push subsequent commits
+git pull                     # Fetch and merge latest changes
+git clone <url>              # Copy remote repo locally
+
+15
+
+mkdir GitRepo
+cd GitRepo
+git init
+echo "This is my first Git file" > file1.txt
+git status
+git add file1.txt
+# Or stage all files
+git add .
+git commit -m "Add initial file file1.txt to repository"
+git remote add origin https://github.com/username/my-repository.git
+git remote -v   # Verify remote
+git push -u origin main   # First push with upstream
+# Or if upstream is already set
+git push
 
 17
 # Step 1: Create a Dockerfile (example)
