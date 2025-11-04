@@ -154,7 +154,20 @@ You can click each stage to view detailed logs
 
 
  {9} Perform various Git operations on local and remote repositories.
-                                       
+                       sudo apt update
+sudo apt install git -y
+sudo apt install gho
+option 2 type -p curl >/dev/null || sudo apt install curl -y
+
+curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg \
+| sudo tee /usr/share/keyrings/githubcli-archive-keyring.gpg >/dev/null
+
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] \
+https://cli.github.com/packages stable main" \
+| sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null
+
+sudo apt update
+sudo apt install gh -ygh auth login
             git config --global user.name "Musab Shaikh"
 git config --global user.email "musabshaikh@example.com"
 mkdir GitPractical
